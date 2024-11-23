@@ -4,3 +4,9 @@ variable "public_subnets" {
 variable "env" {
   
 }
+variable "private_subnets" {
+  type = list(string)
+}
+variable "pb_rt_cidr_block" {
+  
+}
