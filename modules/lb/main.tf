@@ -9,14 +9,14 @@ resource "aws_security_group" "lb_sg" {
 }
 resource "aws_vpc_security_group_ingress_rule" "allow_tls_ipv4" {
   for_each = var.from_port
-  security_group_id = aws_security_group.allow_tls.id
+  security_group_id = aws_security_group.lb_sg.id
   cidr_ipv4         = var.pb_rt_cidr_block
   from_port         = each.value
   ip_protocol       = "tcp"
   to_port           = each.value
 }
 resource "aws_vpc_security_group_egress_rule" "allow_all_traffic_ipv4" {
-  security_group_id = aws_security_group.allow_tls.id
+  security_group_id = aws_security_group.lb_sg.id
   cidr_ipv4         = var.pb_rt_cidr_block
   ip_protocol       = "-1" # semantically equivalent to all ports
 }
