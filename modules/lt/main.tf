@@ -23,7 +23,7 @@ resource "aws_vpc_security_group_ingress_rule" "ssh" {
   to_port = 22
 }
 resource "aws_vpc_security_group_egress_rule" "allow_all_traffic_ipv4" {
-  security_group_id = aws_security_group.lb_sg.id
+  security_group_id = aws_security_group.lt_sg.id
   cidr_ipv4         = var.pb_rt_cidr_block
   ip_protocol       = "-1" # semantically equivalent to all ports
 }
