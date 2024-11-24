@@ -1,5 +1,5 @@
 resource "aws_security_group" "lb_sg" {
-  name        = "lb_sec_grp"
+  name        = "${var.env}-lb-sec-grp-${var.alb_type}"
   description = "Allow TLS inbound traffic and all outbound traffic"
   vpc_id      = var.vpc_id
 
