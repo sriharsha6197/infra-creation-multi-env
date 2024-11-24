@@ -10,7 +10,7 @@ resource "aws_subnet" "main" {
   vpc_id     = aws_vpc.main.id
   for_each = zipmap(range(length(var.public_subnets)),var.public_subnets)
   cidr_block = var.public_subnets[each.key]
-  availability_zone = var.public_azs
+  availability_zone = var.public_azs[each.key]
   tags = {
     Name = "${var.env}-Public-subnet-${each.key + 1}"
   }
@@ -20,7 +20,7 @@ resource "aws_subnet" "private_subnets" {
   vpc_id     = aws_vpc.main.id
   for_each = zipmap(range(length(var.private_subnets)),var.private_subnets)
   cidr_block = var.private_subnets[each.key]
-  availability_zone = var.private_azs
+  availability_zone = var.private_azs[each.key]
   tags = {
     Name = "${var.env}-Private-subnet-${each.key + 1}"
   }
