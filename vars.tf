@@ -19,6 +19,9 @@ variable "internal" {
 variable "lb_type" {
   
 }
+variable "alb_type" {
+  
+}
 variable "component" {
   
 }

@@ -4,6 +4,7 @@ private_subnets = ["192.168.10.0/24","192.168.20.0/24"]
 pb_rt_cidr_block = "0.0.0.0/0"
 from_port = ["443","80","22"]
 lb_type = ""
+alb_type = ""
 vpc_id =""
 subnets = ""
 component = ""

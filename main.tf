@@ -14,7 +14,8 @@ module "public" {
   vpc_id = module.vpc.vpc_id
   env = var.env
   internal = false
-  lb_type = "public"
+  alb_type = "public"
+  lb_type = "application"
   subnets = module.vpc.public_subnets
   from_port = var.from_port
   pb_rt_cidr_block = var.pb_rt_cidr_block
@@ -27,8 +28,9 @@ module "private" {
   vpc_id = module.vpc.vpc_id
   subnets = module.vpc.private_subnets
   from_port = var.from_port
+  alb_type = "private"
   internal = true
-  lb_type = "private"
+  lb_type = "application"
   pb_rt_cidr_block = var.pb_rt_cidr_block
   component = "backend"
 }
