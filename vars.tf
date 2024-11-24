@@ -31,3 +31,24 @@ variable "public_azs" {
 variable "private_azs" {
   type = list(string) 
 }
+variable "instance_type" {
+  
+}
+variable "app_port" {
+  
+}
+variable "desired_capacity" {
+  
+}
+variable "max_size" {
+  
+}
+variable "min_size" {
+  
+}
+variable "subnets" {
+  
+}
+variable "terraform_instance" {
+  
+}
