@@ -10,3 +10,6 @@ variable "private_subnets" {
 variable "pb_rt_cidr_block" {
   
 }
+variable "from_port" {
+  
+}
