@@ -59,12 +59,10 @@ resource "aws_nat_gateway" "nat" {
   for_each = zipmap(range(length(var.public_subnets)),var.public_subnets)
   allocation_id = aws_eip.eip[each.key].id
   subnet_id     = aws_subnet.main[each.key].id
-
+  
   tags = {
     Name = "${var.env}-NATGW-${each.key +1 }"
   }
-
-  depends_on = [aws_internet_gateway.igw.id]
 }
 
 resource "aws_route_table" "pvt_route_table" {
