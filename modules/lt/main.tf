@@ -115,7 +115,6 @@ resource "aws_autoscaling_group" "bar" {
 
 resource "aws_lb_target_group" "tg" {
   name        = "${var.env}-${var.component}-tg"
-  target_type = "alb"
   port        = var.app_port
   protocol    = "HTTP"
   vpc_id      = var.vpc_id
