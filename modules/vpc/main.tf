@@ -115,7 +115,7 @@ resource "aws_vpc_peering_connection" "foo" {
   auto_accept   = true
 
   tags = {
-    Name = "VPC Peering between ${aws_vpc.main.tags.Name} and ${data.aws_vpc.default.Name} "
+    Name = "VPC Peering between ${aws_vpc.main.tags[Name]} and ${data.aws_vpc.default.tags[Name]} "
   }
 }
 
