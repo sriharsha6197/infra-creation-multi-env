@@ -8,7 +8,6 @@ resource "aws_security_group" "lt_sg" {
   }
 }
 resource "aws_vpc_security_group_ingress_rule" "allow_tls_ipv4" {
-  for_each = var.app_port
   security_group_id = aws_security_group.lt_sg.id
   cidr_ipv4         = "192.168.0.0/16"
   from_port         = var.app_port
@@ -83,7 +82,7 @@ resource "aws_launch_template" "foo" {
   iam_instance_profile {
     name = aws_iam_instance_profile.test_profile.name
   }
-  image_id = data.aws_ami.image_id
+  image_id = data.aws_ami.image_id.image_id
   instance_type = var.instance_type
   vpc_security_group_ids = [aws_security_group.lt_sg.id]
 
