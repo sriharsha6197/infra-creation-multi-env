@@ -35,6 +35,7 @@ resource "aws_lb" "test" {
 }
 
 resource "aws_lb_listener" "http" {
+  count = var.alb_type == "private" ? 1 :0
   load_balancer_arn = aws_lb.test.arn
   port              = "80"
   protocol          = "HTTP"
@@ -46,6 +47,7 @@ resource "aws_lb_listener" "http" {
 }
 
 resource "aws_lb_listener" "https" {
+  count = var.alb_type == "public" ? 1 : 0
   load_balancer_arn = aws_lb.test.arn
   port              = "443"
   protocol          = "HTTPS"
@@ -60,6 +62,7 @@ resource "aws_lb_listener" "https" {
 
 
 resource "aws_lb_listener" "redirect_https" {
+  count = var.alb_type == "public" ? 1 : 0
   load_balancer_arn = aws_lb.test.arn
   port              = "80"
   protocol          = "HTTP"
