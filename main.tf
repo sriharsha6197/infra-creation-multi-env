@@ -20,6 +20,7 @@ module "public" {
   from_port = var.from_port
   pb_rt_cidr_block = var.pb_rt_cidr_block
   component = "frontend"
+  tg_arn = module.frontend.tg_arn
 }
 
 module "private" {
@@ -33,6 +34,7 @@ module "private" {
   lb_type = "application"
   pb_rt_cidr_block = var.pb_rt_cidr_block
   component = "backend"
+  tg_arn = module.backend.tg_arn
 }
 
 module "frontend" {
